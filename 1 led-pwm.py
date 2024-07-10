@@ -56,6 +56,3 @@ try:
         
 except KeyboardInterrupt:
     print("Keyboard interrupt")
-    led_pwm.duty_u16(0)
-    print(led_pwm)
-    led_pwm.deinit()
