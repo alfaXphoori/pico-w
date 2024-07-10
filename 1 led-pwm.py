@@ -36,16 +36,8 @@ def pwm_led():
     for duty_cycle in range(65536, 0, -duty_step):
         led_pwm.duty_u16(duty_cycle)
         sleep(0.005)
-        
-def temp_cpu():
-    reading = sensor_temp.read_u16() * conversion_factor
-    # Typical value: 0.706V at 27 degrees C
-    # with a slope of -1.721mV (0.001721) per degree. 
-    temperature = 27 - (reading - 0.706)/0.001721
-    print('On-chip temperature: {:.2f} deg.C'.format(temperature) )
     
 def core0():
-    temp_cpu()
     pwm_led()
     sleep(1)
 try:
