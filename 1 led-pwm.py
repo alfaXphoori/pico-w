@@ -38,8 +38,9 @@ def pwm_led():
         sleep(0.005)
     
 def core0():
-    pwm_led()
-    sleep(1)
+    while True:
+        pwm_led()
+        sleep(1)
 try:
     # Start thread core1
     _thread.start_new_thread(toggle_led, ())
