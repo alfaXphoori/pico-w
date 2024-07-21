@@ -18,8 +18,7 @@ _ADV_TYPE_UUID16_MORE = const(0x2)
 _ADV_TYPE_UUID32_MORE = const(0x4)
 _ADV_TYPE_UUID128_MORE = const(0x6)
 _ADV_TYPE_APPEARANCE = const(0x19)
-#Added
-_ADV_TYPE_SERVICE_DATA = const(0x21)
+#Added Cant use now.
 _ADV_TYPE_MANUFACTURUR = const(0xff)
 
 # Generate a payload to be passed to gap_advertise(adv_data=...).
