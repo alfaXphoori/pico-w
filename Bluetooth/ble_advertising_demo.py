@@ -8,7 +8,7 @@ from micropython import const
 _USER_DATA_UUID = bluetooth.UUID(0x181C) #User Data UUID 
 
 class ble_Advertising:
-    def __init__(self, ble, name="Pico_W_BLE"):
+    def __init__(self, ble, name="Pico_W:Phoori"):
         self._ble = ble
         self._ble.active(True)
         if len(name) == 0:
