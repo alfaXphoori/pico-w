@@ -60,7 +60,7 @@ class BLETemperature:
 
     def update_temperature(self, notify=False, indicate=False):
         temp_deg_c = self._get_temp()
-        print("CPUTemperature %.2f degc" % temp_deg_c);
+        print("CPU_Temperature %.2f degc" % temp_deg_c);
         self._ble.gatts_write(self._handle, struct.pack("<h", int(temp_deg_c * 100)))
         if notify or indicate:
             for conn_handle in self._connections:
