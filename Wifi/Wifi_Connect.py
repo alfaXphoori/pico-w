@@ -3,8 +3,8 @@ import binascii
 import time
 import machine
 
-ssid = 'CE_STD_2_4G_2' #Replace with your Wifi SSID
-password = 'CE@STDKSU' #Replace with your Wifi Password
+ssid = 'CE_STD_2_4G_2' 
+password = 'CE@STDKSU' 
 
 def connect_wifi():
     i = 0 
