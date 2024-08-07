@@ -8,15 +8,7 @@ import socket
 
 ssid = 'CE_STD_2_4G_2' 
 password = 'CE@STDKSU'
-
-conversion_factor = (3.3/65535)
-sensor_temp = machine.ADC(4)
-
-def cpu_temp():
-    reading = sensor_temp.read_u16() * conversion_factor
-    temperature = 27-(reading - 0.706)/0.001721
-    print('Cpu-Temperature: {:.2f} C'.format(temperature))
-    return temperature
+i = 0
 
 def connect_wifi():
     i = 0 
@@ -39,13 +31,15 @@ def get_html(html_name):
 
 def html_response():
     global request
+    global i
     conn, addr = s.accept()
     print('Got a connection from', addr)
     request = conn.recv(1024)
     request = str(request)
     print('Request content = %s' % request)
+    i = i+1
     response = get_html('index.html')
-    response = response.replace('temperature_pico', str(cpu_temp()))
+    response = response.replace('counter', str(i))
     conn.send('HTTP/1.0 200 OK\r\nContent-type: text/html\r\n\r\n')
     conn.send(response)
     conn.close()
