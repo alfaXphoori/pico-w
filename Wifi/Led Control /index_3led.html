@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pico W LED Control</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px; 
+        }
+
+        p {
+            margin-bottom: 10px; /* Reduced margin for better spacing */
+        }
+
+        .button-container {
+            display: flex; /* Enable flexbox for button alignment */
+            justify-content: center;
+            gap: 10px; /* Add space between buttons */
+        }
+
+        button-green {
+            padding: 15px 30px;
+            background-color: #298a60; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        
+        button-red {
+            padding: 15px 30px;
+            background-color: #dc3545; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button i {
+            margin-right: 10px; 
+        }
+
+        a {
+            text-decoration: none; /* Remove underline from links */
+        }
+    </style>
+</head>
+<body>
+    <h1>Pico W LED Control</h1>
+    <h3>LED onboard LED:</h3>
+    <div class="button-container">
+        <a href="?led=on"><button-green><i class="fas fa-lightbulb"></i> ON</button-green></a>
+        <a href="?led=off"><button-red><i class="far fa-lightbulb"></i> OFF</button-red></a>
+    </div>
+    <p></p>
+    <h3>Toggle LED 1</h3>
+    <div class="button-container">
+        <a href="?led_14=on"><button-green><i class="fas fa-lightbulb"></i> ON</button-green></a>
+        <a href="?led_14=off"><button-red><i class="far fa-lightbulb"></i> OFF</button-red></a>
+    </div>
+    
+    <p></p>
+    <h3>Toggle LED 2</h3>
+    <div class="button-container">
+        <a href="?led_15=on"><button-green><i class="fas fa-lightbulb"></i> ON</button-green></a>
+        <a href="?led_15=off"><button-red><i class="far fa-lightbulb"></i> OFF</button-red></a>
+    </div>
+    
+    <p></p>
+    <h3>Toggle LED 3</h3>
+    <div class="button-container">
+        <a href="?led_22=on"><button-green><i class="fas fa-lightbulb"></i> ON</button-green></a>
+        <a href="?led_22=off"><button-red><i class="far fa-lightbulb"></i> OFF</button-red></a>
+    </div>
+</body>
+</html>
+
+
