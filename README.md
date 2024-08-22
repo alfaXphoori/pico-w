@@ -1,3 +1,3 @@
-Pico-W Demo 2024 
-*Micropython
-*Thonny IDE
+## Pico-W Demo 2024 
+#### Micropython
+#### Thonny IDE
