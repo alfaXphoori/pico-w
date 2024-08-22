@@ -1,1 +1,1 @@
-Pico-W Demo 2024
+Pico-W Demo 2024 Micropython
