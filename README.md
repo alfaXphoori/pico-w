@@ -7,3 +7,9 @@
     "collection": "PicoW",
     "database": "CeDB",
     "dataSource": "CeCluster"
+
+    {
+    "name":,
+    "sname":,
+    "stdID":
+    }
