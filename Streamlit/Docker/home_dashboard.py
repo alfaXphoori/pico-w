@@ -51,15 +51,15 @@ def main_page():
         st.write("Temperature")
         with st.container(height=200):
             streamviz.gauge(
-                gVal=35, gSize="SML", 
+                gVal=34, gSize="SML", 
                 gTitle="Temeperature", gMode="gauge+number",
                 grLow=20, grMid=50, gcLow="#e2e6bd", 
                 gcMid="#e8c33c", gcHigh="#e1704c", arTop=70
 )
         with st.container(height=200):
-            temp_value = [23,25,30,35,44,50,16,23,66,34]
-            chart_data = pd.DataFrame(temp_value)
-            st.line_chart(chart_data, height=200, color="#ffaa00")
+            time = [1,2,3,4,5,6,7,8,9,10]
+            chart_data = pd.DataFrame(time)
+            st.line_chart(chart_data,height=200, color="#ffaa00")
     with col2:
         st.write("Huminity")
         with st.container(height=200):
@@ -75,6 +75,7 @@ def main_page():
             st.line_chart(chart_data, height=200, color="#1f2200")
             
     col21, col22, col23, = st.columns(3)
+
     with col21:
         with st.container(height = 120):
             on1 = st.toggle("LAMP 1")
@@ -96,7 +97,7 @@ def main_page():
                 st.write("ON")
             else:
                 st.write("OFF")
-
+    
     with st.container(height=400):
         #st.write("map")
         location = {'lat':[16.44828426030011,16.454618931231167], 'lon':[103.53131004831428,103.53143712501553]}
