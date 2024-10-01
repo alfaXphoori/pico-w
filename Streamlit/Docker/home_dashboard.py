@@ -1,10 +1,14 @@
 import streamlit as st
 import pandas as pd
 import streamviz
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 
-# Predefined credentials for demonstration purposes
-USERNAME = "test"
-PASSWORD = "test"
+uri = "mongodb+srv://alfa:user1234@cecluster.x6mxg.mongodb.net/?retryWrites=true&w=majority&appName=CeCluster"
+client = MongoClient(uri)
+database = client["ceiot"]
+collection_auth = database["auth"]
+collection_devices = database["devices"]
 
 # Check if the user is logged in, and set the appropriate page icon
 if "logged_in" not in st.session_state:
@@ -12,7 +16,12 @@ if "logged_in" not in st.session_state:
 
 # Function to verify login credentials
 def login(username, password):
-    if username == USERNAME and password == PASSWORD:
+    user = collection_auth.find_one(
+        {"username":username,
+         "password":password
+         })
+    print(user)
+    if user:
         st.session_state["logged_in"] = True
         st.session_state["username"] = username
         return True
@@ -47,18 +56,26 @@ def main_page():
     st.title("🏠 Home Dashboard")
 
     col1, col2 = st.columns(2)
+    data = collection_devices.find_one({"type":"sensor"},sort=[('_id', -1)])
+    print(data)
     with col1:
         st.write("Temperature")
         with st.container(height=200):
             streamviz.gauge(
-                gVal=34, gSize="SML", 
+                gVal=data["temperature"], gSize="SML", 
                 gTitle="Temeperature", gMode="gauge+number",
                 grLow=20, grMid=50, gcLow="#e2e6bd", 
                 gcMid="#e8c33c", gcHigh="#e1704c", arTop=70
 )
         with st.container(height=200):
-            time = [1,2,3,4,5,6,7,8,9,10]
-            chart_data = pd.DataFrame(time)
+            last_data = collection_devices.find({"type":"sensor"},sort=[('_id',-1)]).limit(10)
+            data = []
+            for val in last_data:
+                val = str(val["temperature"])  # Convert ObjectId to string
+                data.append(val)
+            temp_value = data
+            chart_data = pd.DataFrame(temp_value)
+            print(data)
             st.line_chart(chart_data,height=200, color="#ffaa00")
     with col2:
         st.write("Huminity")
@@ -81,15 +98,19 @@ def main_page():
             on1 = st.toggle("LAMP 1")
             if on1:
                 st.write("ON")
+                val_con1=1
             else:
                 st.write("OFF")
+                val_con1=0
     with col22:
         with st.container(height = 120):
             on2 = st.toggle("LAMP 2")
             if on2:
                 st.write("ON")
+                val_con2=1
             else:
                 st.write("OFF")
+                val_con2=0
     with col23:
         with st.container(height = 120):
             on3 = st.toggle("LAMP 3")
@@ -98,6 +119,14 @@ def main_page():
             else:
                 st.write("OFF")
     
+    control_data = {
+        "device":20001,
+        "type":"control",
+        "con1": val_con1,
+        "con2": val_con2
+    }
+    collection_devices.insert_one(control_data)
+
     with st.container(height=400):
         #st.write("map")
         location = {'lat':[16.44828426030011,16.454618931231167], 'lon':[103.53131004831428,103.53143712501553]}
@@ -110,8 +139,8 @@ def main_page():
         st.rerun()
 
 # Main application logic: Show login page if not logged in, else show main page
-if st.session_state["logged_in"]:
-    main_page()  # Show main page if logged in
-else:
-    login_page()  # Show login page if not logged in
-#main_page()
+#if st.session_state["logged_in"]:
+#    main_page()  # Show main page if logged in
+#else:
+#    login_page()  # Show login page if not logged in
+main_page()

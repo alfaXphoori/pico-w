@@ -19,7 +19,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app
 
 # Step 7: Expose the port that Streamlit will use (default 8501)
-EXPOSE 8051
+EXPOSE 8501
 
 # Step 8: Command to run Streamlit when the container starts
 CMD ["streamlit", "run", "home_dashboard.py"]
