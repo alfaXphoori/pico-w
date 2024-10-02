@@ -1,11 +1,11 @@
 from paho.mqtt import client as mqtt_client
 import random
 import time
-
-
+import json
+DeviceID = 101
 broker = '127.0.0.1'
 port = 1883
-topic = "python/mqtt"
+topic = "pico_sensor"
 # generate client ID with pub prefix randomly
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
 # username = 'emqx'
@@ -24,21 +24,23 @@ def connect_mqtt():
     client.connect(broker, port)
     return client
 
+def temperatureVal():
+    random_float = random.uniform(15, 50)
+    return random_float
 
 def publish(client):
-    msg_count = 0
     while True:
         time.sleep(1)
-        msg = f"messages: {msg_count}"
+        temp = float(temperatureVal())
+        data = [DeviceID, temp]
+        msg = json.dumps(data)
         result = client.publish(topic, msg)
         # result: [0, 1]
         status = result[0]
         if status == 0:
-            print(f"Send `{msg}` to topic `{topic}`")
+            print(f"topic:{topic} message:{msg}")
         else:
             print(f"Failed to send message to topic {topic}")
-        msg_count += 1
-
 
 def run():
     client = connect_mqtt()
