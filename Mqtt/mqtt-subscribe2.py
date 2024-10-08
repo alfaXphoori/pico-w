@@ -35,15 +35,23 @@ def subscribe(client: mqtt_client):
     def on_message(client, userdata, msg):
         #print("deviceID: ",msg.payload.decode()[1:4])
         deviceID = int(msg.payload.decode()[1:4]) 
-        temperature = float(msg.payload.decode()[5:11])
-        #print("Temperature: ",msg.payload.decode()[5:11])
+        #temperature = float(msg.payload.decode()[9:15])
+        #print(msg.payload.decode())
+        #print(len(msg.payload.decode()))
+        if(len(msg.payload.decode())==17):
+            temperature = float(msg.payload.decode()[9:15])
+            print("Temperature: ",temperature)
+        else:
+            temperature = float(msg.payload.decode()[9:14])
+            print("Temperature: ",temperature)
+
         senser_val = {
         "device":deviceID,
         "type":"sensor",
         "temperature": temperature
         }
-        collection_devices.insert_one(senser_val)
-        print(senser_val)
+        #collection_devices.insert_one(senser_val)
+        #print(senser_val)
         #print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
 
     client.subscribe(topic)

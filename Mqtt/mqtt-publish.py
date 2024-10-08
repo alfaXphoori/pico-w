@@ -28,17 +28,23 @@ def temperatureVal():
     random_float = random.uniform(15, 50)
     return random_float
 
+def humidityVal():
+    random_float = random.randint(40, 90)
+    return random_float
+
 def publish(client):
     while True:
         time.sleep(1)
-        temp = float(temperatureVal())
-        data = [DeviceID, temp]
+        temp = round(temperatureVal(),4)
+        humi = int(humidityVal())
+
+        data = [DeviceID, humi, temp,]
         msg = json.dumps(data)
         result = client.publish(topic, msg)
         # result: [0, 1]
         status = result[0]
         if status == 0:
-            print(f"topic:{topic} message:{msg}")
+            print(f"{topic}:{msg}")
         else:
             print(f"Failed to send message to topic {topic}")
 
