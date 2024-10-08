@@ -5,10 +5,10 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 9090:8051
+      - 8051:8051
     command: [
       "streamlit", "run",
       "home_dashboard.py",
-      "--server.port", "8051",
+      "--server.port", "10099",
       "--server.address", "0.0.0.0"
     ]
