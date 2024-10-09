@@ -3,15 +3,12 @@
 ### MongoAtlas (5 Point)
 
 1. Create Database name examdb
-
 2. Create Collection name examauth
-
 - Add User
   - User : exam
   - PassWD : exam
 
 3. Create Collection name examdata
-
 - Add Data
   - DeviceID : 1000+Student number
   - Temperature: Student number
