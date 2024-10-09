@@ -1,4 +1,9 @@
-## Pico-W Demo 2024 
-#### Micropython
-#### Thonny IDE
-#### MongoDB
+## Full stack with Raspberry pi pico w & Rython  
+
+- Basic pico W
+- Bluetooth
+- Wifi
+- Restful Api
+- Streamlit
+- MQTT
+- MongoAtlas
