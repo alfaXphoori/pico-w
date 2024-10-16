@@ -1,4 +1,4 @@
-## Exam (20 Point)
+## Exam 13:00 - 17:00 (20 Point) 
 ### MongoAtlas                  (6 Point)
 1. Create Database name examdb
 ![spc1-1](https://github.com/user-attachments/assets/4de5e179-1cb0-4e79-9155-93b2042b3915)
@@ -22,10 +22,14 @@
 
 #### Mqtt Docker                (6 Point)
 1. Create Mqtt Server on Docker Port:11000+Student number
+![spc 3-1](https://github.com/user-attachments/assets/3d0de41a-fb25-4568-9d87-cde85dddf90b)
 2. Create Mqtt Publish data every 5 second
 *DeviceID:1000+Student number
 *Temperature:Random(15-50)
 *Humidity:Random(30-70)
+![spc 3-2](https://github.com/user-attachments/assets/6165733b-0e94-4c9b-a187-81d218d45eda)
 3. Create Mqtt Subscriber Update data to MongoAtlas
-
+![spc 3-3](https://github.com/user-attachments/assets/4974aae7-d0e4-4cbf-aca0-eb9adae58c54)
+![spc 3-4](https://github.com/user-attachments/assets/4a1c495f-abed-48e1-9f58-b53bc04d271c)
 #### Run Full Services          (2 Point)
+![spc full](https://github.com/user-attachments/assets/e91b8734-15a1-423f-8856-b64a4877c4f9)
