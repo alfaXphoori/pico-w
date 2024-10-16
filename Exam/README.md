@@ -34,3 +34,4 @@
 #### Run Full Services          (2 Point)
 ![spc full](https://github.com/user-attachments/assets/e91b8734-15a1-423f-8856-b64a4877c4f9)
 
+![spc name](https://github.com/user-attachments/assets/b5c7ffcd-4013-4daa-b3c1-a1f04f7f01d3)
