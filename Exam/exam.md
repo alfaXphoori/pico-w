@@ -1,4 +1,4 @@
-## Exam (20 Point)
+## Exam 13:00 - 16:30 (20 Point)
 ### MongoAtlas                  (6 Point)
 1. Create Database name examdb
 2. Create Collection name examauth

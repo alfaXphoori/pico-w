@@ -1,4 +1,4 @@
-## Exam 13:00 - 17:00 (20 Point) 
+## Exam 13:00 - 16:30 (20 Point) 
 ### MongoAtlas                  (6 Point)
 1. Create Database name examdb
 ![spc1-1](https://github.com/user-attachments/assets/4de5e179-1cb0-4e79-9155-93b2042b3915)
