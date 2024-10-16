@@ -16,7 +16,9 @@
 #### Streamlit Docker           (6 Point)
 1. Create docker Streamlit docker Port:10000+Student number
 2. Create LoginPage (User from examauth)
+![spc 2-1](https://github.com/user-attachments/assets/4c026c92-6201-4ef5-b52e-5b96880340f5)
 3. Create HomePage (Data from examdata)
+![spc2-2](https://github.com/user-attachments/assets/80587c1c-3a12-46b9-a840-3e84955cddcb)
 
 #### Mqtt Docker                (6 Point)
 1. Create Mqtt Server on Docker Port:11000+Student number
